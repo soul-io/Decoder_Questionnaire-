@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RT/SQ Decoder</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 25px;
+      color: #444;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .radio-group {
+      margin-top: 5px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 25px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3a78c2;
+    }
+
+    .thank-you {
+      display: none;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" id="decoderForm">
+    <h1>RT/SQ Decoder</h1>
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" required />
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required />
+
+    <h2>Childhood Resonance</h2>
+    <label for="childBook">What was your favorite book as a child?</label>
+    <input type="text" id="childBook" name="childBook" />
+
+    <h2>Teen Resonance</h2>
+    <label for="teenMovie">What was your favorite movie as a teen?</label>
+    <input type="text" id="teenMovie" name="teenMovie" />
+
+    <label for="schoolSubject">What subject did you enjoy most in school?</label>
+    <input type="text" id="schoolSubject" name="schoolSubject" />
+
+    <h2>Current State</h2>
+    <label>When starting something new, do you:</label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="jumpIn" name="approach" value="Jump in and feel it out" required />
+        <label for="jumpIn">Jump in and feel it out</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="planFirst" name="approach" value="Plan first and research" />
+        <label for="planFirst">Plan first and research</label>
+      </div>
+    </div>
+
+    <label>Do you enjoy public speaking/performing?</label>
+    <div class="radio-group">
+      <div class="radio-option">
+        <input type="radio" id="speakYes" name="publicSpeaking" value="Yes" required />
+        <label for="speakYes">Yes</label>
+      </div>
+      <div class="radio-option">
+        <input type="radio" id="speakNo" name="publicSpeaking" value="No" />
+        <label for="speakNo">No</label>
+      </div>
+    </div>
+
+    <label for="relationshipStyle">In close relationships, you are:</label>
+    <select id="relationshipStyle" name="relationshipStyle" required>
+      <option value="">-- Select one --</option>
+      <option value="Loyal/Grounding">Loyal/Grounding</option>
+      <option value="Playful/Unpredictable">Playful/Unpredictable</option>
+      <option value="Guarded/Private">Guarded/Private</option>
+      <option value="Empathetic/Nurturing">Empathetic/Nurturing</option>
+    </select>
+
+    <button type="submit">Submit</button>
+    <div class="thank-you" id="thankYouMsg">Thank you! Your submission has been received.</div>
+  </form>
+
+  <script>
+    document.getElementById("decoderForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("thankYouMsg").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
